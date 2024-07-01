@@ -54,8 +54,8 @@ const KeywordTable: React.FC<KeywordTableProps> = ({
     [onEdit, onDelete],
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+  //@ts-ignore
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
 
   return (
     <>
@@ -92,7 +92,6 @@ const KeywordTable: React.FC<KeywordTableProps> = ({
                 >
                   {row.cells.map((cell, key) => (
                     <td
-                      key={key}
                       {...cell.getCellProps()}
                       className="border-b border-gray-200 px-6 py-4 text-center"
                     >
