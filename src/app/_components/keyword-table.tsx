@@ -8,7 +8,7 @@ export interface Keyword {
 }
 
 interface KeywordTableProps {
-  isLoading: boolean
+  isLoading: boolean;
   data: Keyword[];
   onEdit: (row: Keyword) => void;
   onDelete: (id: number) => void;
@@ -54,8 +54,8 @@ const KeywordTable: React.FC<KeywordTableProps> = ({
     [onEdit, onDelete],
   );
 
-  //@ts-ignore
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
 
   return (
     <>
@@ -92,6 +92,7 @@ const KeywordTable: React.FC<KeywordTableProps> = ({
                 >
                   {row.cells.map((cell, key) => (
                     <td
+                      key={key}
                       {...cell.getCellProps()}
                       className="border-b border-gray-200 px-6 py-4 text-center"
                     >
@@ -105,7 +106,9 @@ const KeywordTable: React.FC<KeywordTableProps> = ({
         </table>
       </div>
       {isLoading && <p className="text-center">Fetching data please wait...</p>}
-      {!isLoading && !rows.length && <p className="text-center">No data available</p>}
+      {!isLoading && !rows.length && (
+        <p className="text-center">No data available</p>
+      )}
     </>
   );
 };

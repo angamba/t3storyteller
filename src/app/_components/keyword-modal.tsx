@@ -11,7 +11,7 @@ interface KeywordModalProps {
   editData: Keyword | undefined;
   onRequestClose: () => void;
   onAdd: (keyword: string) => void;
-  onEditSave: (keyword: Keyword) => Promise<void>;
+  onEditSave: (keyword: Keyword) => void;
 }
 
 const KeywordModal: React.FC<KeywordModalProps> = ({

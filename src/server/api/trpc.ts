@@ -12,7 +12,6 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 import { getUserByClerkId } from "../helpers/user";
 import { NextRequest } from "next/server";
@@ -30,8 +29,6 @@ import { NextRequest } from "next/server";
  * @see https://trpc.io/docs/server/context
  */
 export const createTRPCContext = async (opts: NextRequest) => {
-  // const session = await getServerAuthSession();
-
   const session = getAuth(opts);
 
   if (!session?.userId) {

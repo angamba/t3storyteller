@@ -9,9 +9,6 @@ import DiscordProvider from "next-auth/providers/discord";
 
 import { env } from "~/env";
 import { db } from "~/server/db";
-
-import { getAuth } from "@clerk/nextjs/server"
-
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
  * object and keep type safety.
